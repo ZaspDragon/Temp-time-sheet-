@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Timesheet Entry</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>Timesheet Entry</h1>
+      <p class="sub">One employee at a time. Fill your shift, hit Submit — it lands in the spreadsheet.</p>
+    </header>
+
+    <section class="notice">
+      <strong>Heads up:</strong> Time fields accept <code>8</code> or <code>8:15</code>. Use AM/PM dropdowns (defaults are In=AM, Out=PM).
+    </section>
+
+    <form id="timesheetForm">
+      <div class="grid">
+        <label>
+          Employee Name
+          <input id="employeeName" name="employeeName" type="text" placeholder="Brandon" required />
+        </label>
+
+        <label>
+          Staffing Agency
+          <input id="staffingAgency" name="staffingAgency" type="text" placeholder="Sterling" required />
+        </label>
+
+        <label>
+          Date
+          <input id="date" name="date" type="date" required />
+        </label>
+
+        <label>
+          Time In
+          <input id="timeIn" name="timeIn" type="text" inputmode="numeric" placeholder="8 or 8:15" required />
+        </label>
+
+        <label>
+          In AM/PM
+          <select id="inAmPm" name="inAmPm">
+            <option value="AM" selected>AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </label>
+
+        <label>
+          Lunch Taken?
+          <select id="lunch" name="lunch">
+            <option value="No" selected>No</option>
+            <option value="Yes">Yes</option>
+          </select>
+        </label>
+
+        <label>
+          Lunch Minutes (if Yes)
+          <input id="lunchMinutes" name="lunchMinutes" type="number" min="0" max="180" step="1" value="30" />
+        </label>
+
+        <label>
+          Time Out
+          <input id="timeOut" name="timeOut" type="text" inputmode="numeric" placeholder="4 or 4:30" required />
+        </label>
+
+        <label>
+          Out AM/PM
+          <select id="outAmPm" name="outAmPm">
+            <option value="PM" selected>PM</option>
+            <option value="AM">AM</option>
+          </select>
+        </label>
+
+        <label>
+          Scheduled In (optional)
+          <input id="scheduledIn" name="scheduledIn" type="text" inputmode="numeric" placeholder="8 or 8:00" />
+        </label>
+
+        <label>
+          Scheduled AM/PM
+          <select id="scheduledAmPm" name="scheduledAmPm">
+            <option value="AM" selected>AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="submitBtn" type="submit">Submit</button>
+        <button type="button" id="clearBtn" class="secondary">Clear</button>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </form>
+
+    <footer>
+      <small>Built for GitHub Pages + Google Sheets.</small>
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
